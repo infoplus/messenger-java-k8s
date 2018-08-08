@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: messenger-java-k8s
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: messenger-java-k8s 
+    spec:
+      containers:
+      - name: messenger-java-k8s
+        image: gitlab-ce-registry-svc:5050/infoplus/messenger-java-k8s
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+        - name: gitlab-ce

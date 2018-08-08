@@ -55,9 +55,17 @@
 				<version>0.9.8</version>
 				<configuration>
 					<to>
-						<image>messenger-java-k8s</image>
+						<image>http://gitlab-ce-registry-svc:5050/infoplus/messenger-java-k8s</image>
 					</to>
 				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+ 							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
