@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<maven.test.skip>true</maven.test.skip>
 	</properties>
 
 	<dependencies>
@@ -49,13 +50,46 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>set-system-properties</goal>
+                        </goals>
+                        <configuration>
+                            <properties>
+                                <property>
+                                    <name>sendCredentialsOverHttp</name>
+                                    <value>true</value>
+                                </property>
+                            </properties>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
 				<version>0.9.8</version>
 				<configuration>
+					<registry>gitlab-ce-registry-svc:5050</registry>
+					<allowInsecureRegistries>true</allowInsecureRegistries>
+					<!--
+					<from>openjdk:10-jre</from>
+					<repository>${myimage}</repository>
+					<tag>${app-tag}</tag>
+					<jvmFlags>
+						<jvmFlag>-Xms1g</jvmFlag>
+					</jvmFlags>
+					<mainClass>mypackage.MyApp</mainClass>
+					<enableReproducibleBuilds>true</enableReproducibleBuilds>
+					<imageFormat>Docker</imageFormat>
+					-->
 					<to>
-						<image>http://gitlab-ce-registry-svc:5050/infoplus/messenger-java-k8s</image>
+						<image>gitlab-ce-registry-svc:5050/infoplus/messenger-java-k8s</image>
 					</to>
 				</configuration>
 				<executions>

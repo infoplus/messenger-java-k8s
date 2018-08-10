@@ -19,7 +19,6 @@ k8s-deploy:
   image: google/cloud-sdk
   stage: deploy
   script:
-  - kubectl delete secret registry.gitlab-ce
-  - kubectl create secret docker-registry registry.gitlab-ce --docker-server=http://gitlab-ce:5050 --docker-username=infoplus --docker-password=$REGISTRY_PASSWD --docker-email=infoplus@gitlab-ce
+  - kubectl delete -f k8s-deploy.yaml
   - kubectl apply -f k8s-deploy.yaml
 

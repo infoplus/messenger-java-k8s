@@ -16,4 +16,4 @@ spec:
         ports:
         - containerPort: 8080
       imagePullSecrets:
-        - name: gitlab-ce
+        - name: gitlab-ce-registry-json-key
