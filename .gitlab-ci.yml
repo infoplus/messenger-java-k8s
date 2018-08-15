@@ -29,7 +29,8 @@ maven-build:
       - target/*.tar
 
 k8s-deploy:
-  image: google/cloud-sdk
+#  image: google/cloud-sdk
+  image: marstone/k8s-cli
   stage: deploy
   script:
   - kubectl delete -f k8s-deploy.yaml
