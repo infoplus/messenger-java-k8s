@@ -20,7 +20,7 @@ stages:
   - deploy
 
 maven-build:
-  image: maven:3-jdk-8
+  image: maven:3.5-jdk-8
   stage: package
   script: "mvn package -Djib.to.auth.username=infoplus -Djib.to.auth.password=7E5BEB63CC80"
   artifacts:
