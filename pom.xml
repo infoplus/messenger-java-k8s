@@ -23,8 +23,6 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<maven.test.skip>true</maven.test.skip>
-        <jib.to.auth.username>infoplus</jib.to.auth.username>
-        <jib.to.auth.password>7E5BEB63CC80</jib.to.auth.password>
 	</properties>
 
 	<dependencies>
