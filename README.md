@@ -1,2 +1,4 @@
 # messenger-java-k8s
-since 2018/08/06 by marstone
+@since 2018/08/06 
+@author marstone
+
